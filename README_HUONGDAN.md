@@ -49,7 +49,7 @@
 
 
 
-## 📊 Kết quả dự kiến
+## Kết quả dự kiến
 
 Model               Recall  Precision  Accuracy  F1-Score
 Logistic Regression 0.794118   0.493355  0.728500  0.608607

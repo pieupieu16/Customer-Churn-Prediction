@@ -1,23 +1,23 @@
 # HỆ THỐNG DỰ ĐOÁN KHÁCH HÀNG RỜI ĐI (CHURN) - HƯỚNG DẪN HOÀN CHỈNH
 
-## 📊 Dữ liệu
+##  Dữ liệu
 - **`WA_Fn-UseC_-Telco-Customer-Churn.csv`** - Dữ liệu Telco Customer Churn (~7,000 khách hàng)
 
-## 📑 Mục lục
+## Mục lục
 
-### 🎯 Phần 1: Kiến thức cơ bản
+###  Phần 1: Kiến thức cơ bản
 - Hiểu bài toán Churn Prediction (Dự đoán khách hàng rời đi)
 - Đây là **Classification Problem** (Bài toán phân loại)
 - Khái niệm X (Input), y (Output)
 
-### 📚 Phần 2: Làm quen dữ liệu
+### Phần 2: Làm quen dữ liệu
 - Import thư viện cần thiết (pandas, numpy, matplotlib, seaborn)
 - Đọc file CSV
 - Khám phá kích thước dữ liệu
 - Giải thích ý nghĩa các cột
 - Phân biệt loại dữ liệu
 
-### 🔍 Phần 3: Khám phá dữ liệu (EDA)
+###  Phần 3: Khám phá dữ liệu (EDA)
 - Kiểm tra dữ liệu thiếu (Missing Values)
 - Phân bố Churn: Pie chart & Bar chart
 - So sánh Churn theo các đặc trưng (giới tính, hợp đồng, internet service, v.v.)
@@ -30,7 +30,7 @@
 - **Internet Fiber**: Tỷ lệ churn cao hơn DSL
 - **Khách có bạn đời/người phụ thuộc**: Ít rời đi hơn
 
-### 🔧 Phần 4: Tiền xử lý dữ liệu (Data Preprocessing)
+### Phần 4: Tiền xử lý dữ liệu (Data Preprocessing)
 - **Fix lỗi dữ liệu**: Xử lý TotalCharges (11 giá trị trống)
 - **Xóa dữ liệu cột không cần**: Bỏ customerID
 - **Xóa dữ liệu trùng lặp**: Kiểm tra và xóa duplicate records
@@ -42,14 +42,14 @@
   - Group các dịch vụ: "No phone service" → "No"
   - One-Hot Encoding: Cho các cột danh mục còn lại
 
-### ✨ Phần 5: Feature Engineering
+### Phần 5: Feature Engineering
 - **Tenure_Cohort**: Phân nhóm khách hàng theo thời gian gắn bó
 - **Total_Extra_Services**: Tổng số dịch vụ bổ sung
 - **Is_Family**: Flag có gia đình hay không
 - **Avg_Actual_Monthly_Charge**: Chi phí trung bình hàng tháng lịch sử
 - **Charge_Fluctuation_Ratio**: Tỷ lệ biến động giá
 
-### 📊 Phần 6: Xây dựng mô hình
+### Phần 6: Xây dựng mô hình
 - **Logistic Regression**: Thuật toán phân loại tuyến tính
   - Tách X, y
   - Chia train/test (80/20)
@@ -67,7 +67,7 @@
   - Xử lý cân bằng class_weight='balanced'
   - Huấn luyện trên dữ liệu chưa chuẩn hóa
 
-### 📈 Phần 7: Đánh giá mô hình
+### Phần 7: Đánh giá mô hình
 Các metrics chính:
 - **Accuracy**: Phần trăm dự đoán đúng tổng thể
 - **Precision**: Trong những người dự đoán "rời đi", bao nhiêu thực sự rời?
@@ -76,18 +76,12 @@ Các metrics chính:
 - **Confusion Matrix**: Hiển thị TP, TN, FP, FN
 
 
-### 🚀 Phần 8: Cải thiện & Tuning mô hình
+###  Phần 8: Cải thiện & Tuning mô hình
 - **Cross-Validation (K-Fold)**: Dùng StratifiedKFold với k=10
 - **Hyperparameter Tuning**: Tìm tham số tối ưu cho Random Forest
 - **So sánh mô hình**: Đánh giá 3 thuật toán khác nhau
 
-#### Kết quả ước tính (từ notebook):
 
-| Model | Recall | Precision | Accuracy | F1-Score |
-|-------|--------|-----------|----------|----------|
-| **Logistic Regression** (threshold=0.22) | 0.794 | 0.493 | 0.729 | 0.609 |
-| **Decision Tree** (max_depth=5) | 0.807 | 0.488 | 0.724 | 0.608 |
-| **Random Forest** (n_estimators=76, max_depth=5) | 0.765 | 0.510 | 0.742 | 0.612 |
 
 #### 💡 Cross-Validation Results (Random Forest, k=10):
 - **Accuracy**: ~0.78-0.80 (rất ổn định, σ ≈ 0.0106)
